@@ -1,0 +1,109 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.usersReview {
+  padding: 30px 0;
+  width: 100%;
+  min-height: 70vh;
+  background-color: $white;
+  @include flex(column, center, center, nowrap, 30px);
+
+
+  h2 {
+    @extend %fontBlackberry;
+    font-size: 3rem;
+    color: $light-black;
+    text-align: center;
+  }
+
+  div {
+    width: 100%;
+    @include flex(row, center, center, wrap, 20px);
+
+    .usersReview__eachReview {
+      width: 25%;
+      min-height: 300px;
+      @extend %boxShadow;
+      @include flex(column, center, flex-start, wrap, 0);
+      position: relative;
+      border-radius: 5px;
+
+      i {
+        scale: 2.5;
+        color: $light-blue;
+        margin: 20px 0;
+      }
+
+      .usersReview__review {
+        padding: 0 20px;
+        padding-bottom: 20px!important;
+        text-align: center;
+        font-size: 0.9rem;
+        color: $light-black;
+      }
+
+      h3, .usersReview__tour {
+        margin-bottom: 10px;
+        color: $light-black;
+      }
+
+      .usersReview__tour {
+        font-size: 0.8rem;
+      }
+
+      img {
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(50%);
+      }
+    }
+  }
+}
+
+@include breakpoints(1280px){
+  .usersReview > div > .usersReview__eachReview {
+    min-height: 350px;
+  }
+}
+
+@include breakpoints(900px){
+  .usersReview {
+    padding: 20px 0 40px 0;
+    gap: 20px;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+    div > .usersReview__eachReview {
+      width: 30%;
+      min-height: 300px;
+    }
+  }
+}
+
+@include breakpoints(750px) {
+  .usersReview > div {
+    @include flex(column, center, center, nowrap, 40px);
+
+    .usersReview__eachReview {
+      width: 350px;
+    }
+  }
+}
+
+@include breakpoints(400px) {
+  .usersReview {
+    h2 {
+      font-size: 2rem;
+    }
+
+    div > .usersReview__eachReview {
+      width: 85%;
+      min-height: 350px;
+    }
+  }
+}

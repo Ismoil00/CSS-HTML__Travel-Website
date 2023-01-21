@@ -1,0 +1,134 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.features {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $white;
+  @include flex(column, center, center, nowrap, 20px);
+
+  h2 {
+    @extend %fontBlackberry;
+    font-size: 3rem;
+    color: $light-black;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .features__articles {
+    width: 100%;
+    @include flex(row, center, center, wrap, 30px);
+
+    article {
+      flex-basis: 25%;
+      @extend %boxShadow;
+      border-radius: 5px;
+
+      .features__img {
+        width: 100%;
+        position: relative;
+
+        img {
+          width: 100%;
+          cursor: pointer;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+        .features__img--rating {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(255, 255, 255, 0.7);
+
+          i {
+            color: $orange;
+          }
+        }
+
+        .features__img--price {
+          width: 40px;
+          height: 40px;
+          background-color: $orange;
+          color: $white;
+          font-weight: 500;
+          display: grid;
+          place-content: center;
+          border: none;
+          border-radius: 50%;
+          position: absolute;
+          left: 5%;
+          bottom: 0;
+          transform: translateY(50%);
+        }
+      }
+
+      .features__info {
+        min-height: 200px;
+        padding: 30px 20px 20px 20px;
+
+        h3 {
+          color: $light-black;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          line-height: 1.5;
+          color: $light-black;
+        }
+
+        .features__info--location {
+          margin-top: 15px;
+          color: $light-black;
+          font-size: 0.9rem;
+
+          i {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+
+
+  @include breakpoints(900px){
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .features__articles {
+      width: 100%;
+      @include flex(row, center, center, wrap, 20px);
+
+      article {
+       height: 400px;
+       flex-basis: 30%;
+
+       .features__info {
+        padding: 20px 10px 10px 10px;
+       }
+      }    
+    }
+  }
+
+  @include breakpoints(600px) {
+    padding: 20px 0;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .features__articles {
+      width: 100%;
+      @include flex(column, center, center, nowrap, 30px);
+
+      article {
+        height: 400px;
+        width: 70%;
+       } 
+    }
+  }
+}

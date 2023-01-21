@@ -1,0 +1,70 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.gallery {
+  width: 100%;
+  min-height: 50vh;
+  background-color: $lighter-gray;
+  @include flex(column, center, center, nowrap, 30px);
+
+  h2 {
+    padding: 0 20px;
+    @extend %fontBlackberry;
+    font-size: 3rem;
+    color: $light-black;
+    text-align: center;
+  }
+
+  .gallery__cities {
+    padding: 0 20px;
+    width: 100%;
+    @include flex(row, center, center, wrap, 20px);
+
+    .gallery__cities--city {
+      position: relative;
+
+      img {
+        border: none;
+        border-radius: 10px;
+        @include transition(0.4s);
+        @extend %boxShadow;
+        cursor: pointer;
+
+        &:hover {
+          scale: 1.07
+        }
+      };
+
+      .gallery__cities--name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: $white;
+        font-size: 1.2rem;
+        font-weight: 500;
+        white-space: nowrap;
+        text-shadow: 0 0 10px black;
+      }
+    }
+  }
+}
+
+@include breakpoints(900px){
+  .gallery {
+    padding: 20px 0;
+    @include flex(column, center, center, nowrap, 20px);
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@include breakpoints(500px){
+  .gallery h2 {
+    font-size: 2rem;
+  }
+}

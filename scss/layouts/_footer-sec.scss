@@ -1,0 +1,126 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.footer {
+  width: 100%;
+  min-height: 50vh;
+  background: linear-gradient(to bottom, $dark-blue, $light-purple);
+  @include flex(column, center, center, nowrap, 0);
+
+  .footer__columns {
+    width: 80%;
+    padding-bottom: 20px;
+    @include flex(row, center, flex-start, wrap, 0);
+    border-bottom: 1px solid $white;
+
+    .footer__eachColumn {
+      width: 25%;
+      padding-left: 50px;
+      @include flex(column, flex-start, flex-start, nowrap, 10px);
+      color: $white;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      
+      p {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+
+        i {
+          margin-right: 20px;
+        }
+      }
+
+      .footer__link {
+        cursor: pointer;
+        @include transition(0.3s);
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+   
+  .firstColumn {
+    padding-left: 0!important;
+  }
+
+  .thirdColumn {
+    padding-left: 30px!important;
+  }
+
+  .footer__text {
+    margin-top: 20px;
+    text-align: center;
+    color: $white;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@include breakpoints(1000px) {
+  .footer{
+    padding: 20px 0;
+
+    .footer__columns {
+      width: 90%;
+
+      .footer__eachColumn {
+        padding-left: 0;
+        align-items: center;
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          letter-spacing: 0;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .firstColumn img {
+      width: 100px;
+    }
+
+    .thirdColumn {
+      padding-left: 0!important;
+    }
+    
+    .footer__text {
+      padding: 0 20px;
+      font-size: 0.9rem;
+      letter-spacing: 0;
+    }
+  }
+}
+
+@include breakpoints(770px) {
+  .footer{
+    // padding: 20px 0;
+
+    .footer__columns {
+      @include flex(column, center, flex-start, nowrap, 20px);
+      border-bottom: none;
+      padding-bottom: 10px;
+
+      .footer__eachColumn {
+        width: 80%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid white;
+      }
+    }
+
+    .footer__text {
+      margin-top: 0;
+    }
+  }
+}

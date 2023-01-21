@@ -1,0 +1,8 @@
+
+// breakpoints: 900, 500, 350
+
+@mixin breakpoints($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}

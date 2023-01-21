@@ -1,0 +1,112 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.top {
+  width: 100%;
+  min-height: 100vh;
+  @include flex(column, center, center, nowrap, 10px);
+  position: relative;
+
+  &__header {
+    width: 100%;
+    padding: 20px 12vw;
+    position: absolute;
+    top: 0;
+    @include flex(row, center, space-between, wrap, 0);
+
+    img {
+      width: 150px;
+      cursor: pointer;
+    }
+
+    button{
+      @extend %buttons;
+
+      &:hover {
+        border-color: $light-gray;
+        color: $light-gray;
+      }
+    }
+
+    @include breakpoints(350px){
+      @include flex(column, center, center, wrap, 10px);
+    }
+  }
+
+  h1 {
+    font-size: 3.375rem;
+    color: $white;
+    text-align: center;
+    @extend %fontBlackberry;
+
+    @include breakpoints(900px){
+      font-size: 40px;
+    }
+    @include breakpoints(500px){
+      font-size: 32px;
+      padding: 0 20px;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: $light-gray;
+    text-align: center;
+    letter-spacing: 1px;
+
+    @include breakpoints(500px){
+      letter-spacing: 0;
+      font-size: 0.8rem;
+      padding: 0 20px;
+    }
+  }
+
+  .searchDiv {
+    width: 32vw;
+    @include flex(row, center, center, nowrap, 0);
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 8px 20px;
+      font-size: 1rem;
+      @extend %inputBorder;
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      @extend %inputBorder;
+      padding: 0 20px;
+      cursor: pointer;
+      background: linear-gradient(to bottom, $light-green, $dark-blue);
+      color: $white;
+      @include transition();
+
+      &:hover {
+        color: $light-gray;
+      }
+    }
+
+    @include breakpoints(900px){
+      width: 50vw;
+    }
+    @include breakpoints(650px){
+      width: 70vw;
+    }
+    @include breakpoints(500px){
+      width: 85vw;
+
+      input {
+        padding: 7px 10px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+@forward "fonts";
+@use "colors" as *;
+
+// @Mixins:
+@mixin flex($direction, $align, $justify, $wrap, $gap){
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+};
+
+@mixin transition($sec: 0.2s) {
+  transition: all $sec;
+};
+
+// Codes to be @Extended:
+%inputBorder {
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
+%fontBlackberry {
+  font-family: blackBerry;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+%boxShadow {
+  box-shadow: 0 0 5px gray;
+}
+
+%buttons {
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 2px solid $white;
+  border-radius: 30px;
+  color: $white;
+  cursor: pointer;
+  @include transition();
+}

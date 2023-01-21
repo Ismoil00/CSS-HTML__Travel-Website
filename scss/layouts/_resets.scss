@@ -1,0 +1,26 @@
+@forward "../utilities/fonts";
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  position: relative;
+}

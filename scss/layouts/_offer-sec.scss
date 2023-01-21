@@ -1,0 +1,45 @@
+@forward "../utilities/fonts";
+@use "../utilities/repetitive-code" as *;
+@use "../utilities/colors" as *;
+@use "../utilities/breakpoint" as *;
+
+.offer {
+  width: 100%;
+  min-height: 100vh;
+  @include flex(row, center, center, nowrap, 0);
+
+  .offer__content {
+    padding: 0 50px;
+    width: 100%;
+    min-height: 30vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include flex(row, center, space-evenly, wrap, 0);
+
+
+    .offer__content--text {
+      color: $white;
+      text-align: center;
+
+      h2, p {
+        letter-spacing: 0.5px;
+        font-weight: 400;
+      }
+    }
+
+    button {
+      @extend %buttons;
+
+      &:hover {
+        border-color: $light-gray;
+        color: $light-gray;
+      }
+    }
+  }
+}
+
+@include breakpoints(770px) {
+  .offer >  .offer__content {
+    padding: 20px;
+    @include flex(column, center, center, nowrap, 20px);
+  }
+}
